@@ -62,3 +62,56 @@ The central architectural principle is:
               ┌────────────────────────┐
               │ Portfolio Application  │
               └────────────────────────┘
+
+
+## Logical Architecture
+┌─────────────────────────────────────────────────────────────┐
+│                        Presentation                          │
+│                                                             │
+│  Web UI                                                     │
+│  Dashboard │ Holdings │ Transactions │ Analytics │ Settings │
+└────────────────────────────┬────────────────────────────────┘
+                             │ HTTPS / JSON
+                             ▼
+┌─────────────────────────────────────────────────────────────┐
+│                         API Layer                            │
+│                                                             │
+│  Authentication                                             │
+│  Portfolio API                                               │
+│  Asset API                                                   │
+│  Transaction API                                             │
+│  Dashboard API                                               │
+│  Analytics API                                               │
+│  AI Analyst API                                              │
+└────────────────────────────┬────────────────────────────────┘
+                             │
+                             ▼
+┌─────────────────────────────────────────────────────────────┐
+│                    Application Layer                         │
+│                                                             │
+│  Portfolio Service                                           │
+│  Transaction Service                                         │
+│  Valuation Service                                           │
+│  Performance Service                                         │
+│  Allocation Service                                          │
+│  Income Service                                              │
+│  AI Analysis Service                                         │
+└────────────────────────────┬────────────────────────────────┘
+                             │
+                             ▼
+┌─────────────────────────────────────────────────────────────┐
+│                       Domain Layer                           │
+│                                                             │
+│  Portfolio │ Holding │ Asset │ Transaction │ Position       │
+│  Valuation │ Performance │ Income                           │
+│                                                             │
+│  Financial calculation rules                                │
+└────────────────────────────┬────────────────────────────────┘
+                             │
+                             ▼
+┌─────────────────────────────────────────────────────────────┐
+│                    Infrastructure                           │
+│                                                             │
+│  Database │ Market Data │ Cache │ Authentication │ Logging  │
+│  External APIs │ File Storage │ LLM Provider                │
+└─────────────────────────────────────────────────────────────┘
